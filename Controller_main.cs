@@ -22,12 +22,12 @@ public class Controller_main : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         if (other.name.Contains("Pellet")) {
-            ScoreManager.score += 1;
+            ScoreManager.score += 10;
             Destroy(other.gameObject);
         }
         else if (other.name.Contains("Special"))
         {
-            ScoreManager.score += 10;
+            ScoreManager.score += 500;
             Destroy(other.gameObject);
         }
 
@@ -35,12 +35,17 @@ public class Controller_main : MonoBehaviour {
         {
             //the ghosts become vulnerable
             ghost_controller.weak = true;
+            ScoreManager.score += 50;
+            ghost_controller.supertime = 50f;
+            Destroy(other.gameObject);
         }
 
         else if (other.name.Contains("ghost") && ghost_controller.weak)
         {
             //then kill the ghost and make it respawn
-            ScoreManager.score += 20;
+            ScoreManager.score += 200;
+            ghost_controller.revive = true;
+            //ghost_controller.Respawn();
         }
 
         else if (other.name.Contains("ghost") && ScoreManager.lives == 0)
@@ -55,6 +60,17 @@ public class Controller_main : MonoBehaviour {
             transform.position = spawnPoint;
         }
         
+        else if (other.name.Contains("Portal"))
+        {
+            if (other.name.Contains("Left")){
+                transform.position = GameObject.Find("Portal_Right").transform.position;
+            }
+            else
+            {
+                transform.position = GameObject.Find("Portal_Left").transform.position;
+            }
+        }
+
     }
 
     // Update is called once per frame
