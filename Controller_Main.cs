@@ -6,7 +6,8 @@ public class Controller_Main : MonoBehaviour {
 
     private bool moving = false;
     private Vector3 spawnPoint;
-    private float speed = 6.5f;
+    private float speed = 7.5f;
+    private Vector3 lastpos;
 
     public static bool dead;
 
@@ -30,12 +31,21 @@ public class Controller_Main : MonoBehaviour {
         }
     }
 
+    //bug causes pacman to fly all over board when eating a ghost
+    //prevent large changes in position
+    void PreventFlight()
+    {
+
+    }
+
+
 	// Update is called once per frame
 	void Update () {
 
         //call when hitting a ghost without super pellet
         if (dead)
         {
+            Debug.Log("I died");
             transform.position = spawnPoint;
             dead = false;
         }

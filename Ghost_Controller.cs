@@ -7,13 +7,15 @@ public class Ghost_Controller : MonoBehaviour {
     public static bool weak;
     public static float supertime;
     public static bool revive;
+    public static int portDir;
 
     Dictionary<string, GameObject> childObjs = new Dictionary<string, GameObject>();
     Dictionary<string, GameObject>.KeyCollection keys;
 
     string[] colors = { "red", "pink", "cyan", "orange" };
 
-    private Vector3 spawnpoint;
+    //private Vector3 spawnpoint;
+    public static Vector3 spawnpoint;
 
     // Use this for initialization
     void Start () {
@@ -33,7 +35,7 @@ public class Ghost_Controller : MonoBehaviour {
         keys = childObjs.Keys;
     }
 
-
+    /*
     void OnTriggerEnter(Collider other)
     {
         if (other.name.Contains("Portal_Left"))
@@ -50,17 +52,34 @@ public class Ghost_Controller : MonoBehaviour {
             transform.position = spawnpoint;
         }
     }
+    */
 
+    void Portals()
+    {
+        switch (portDir)
+        {
+            case 1:
+                gameObject.transform.position = GameObject.Find("Portal_Right").transform.position;
+                portDir = 0;
+                break;
+            case 2:
+                gameObject.transform.position = GameObject.Find("Portal_Left").transform.position;
+                portDir = 0;
+                break;
+            default:
+                break;
+        }
+    }
 
-    // Update is called once per frame
-    void Update () {
-
+    void Switcher()
+    {
         if (weak)
         {
             foreach (string name in keys)
             {
                 if (name.Contains("vulnerable"))
                 {
+                    //Debug.Log("Should switch now");
                     childObjs[name].SetActive(true);
                 }
                 else
@@ -79,6 +98,7 @@ public class Ghost_Controller : MonoBehaviour {
             {
                 if (name.Contains("vulnerable"))
                 {
+                    //Debug.Log("Not weak anymore");
                     childObjs[name].SetActive(false);
                 }
                 else
@@ -88,10 +108,32 @@ public class Ghost_Controller : MonoBehaviour {
             }
         }
 
+        //Debug.Log(supertime);
+
         if (supertime < 0)
         {
             weak = false;
         }
+
+    }
+    
+    //delegate the respawn to the pacman controller
+    void Respawn()
+    {
+        if (revive)
+        {
+            gameObject.transform.position = spawnpoint;
+            revive = false;
+        }
+    }
+
+
+    // Update is called once per frame
+    void Update () {
+
+        Switcher();
+        //Respawn();
+        Portals();
 
     }
 }

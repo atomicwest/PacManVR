@@ -28,6 +28,7 @@ public class Pacman_Controller : MonoBehaviour {
         else if (other.name.Contains("Super"))
         {
             //the ghosts become vulnerable
+            Debug.Log("Ghosts should be weak now");
             Ghost_Controller.weak = true;
             Score_Manager.score += 50;
             Ghost_Controller.supertime = 50f;
@@ -38,8 +39,9 @@ public class Pacman_Controller : MonoBehaviour {
         {
             //then kill the ghost and make it respawn
             Score_Manager.score += 200;
-            Ghost_Controller.revive = true;
+            //Ghost_Controller.revive = true;
             //Ghost_Controller.Respawn();
+            other.transform.position = Ghost_Controller.spawnpoint;
         }
         
 
