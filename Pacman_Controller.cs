@@ -41,7 +41,7 @@ public class Pacman_Controller : MonoBehaviour {
             Score_Manager.score += 200;
             //Ghost_Controller.revive = true;
             //Ghost_Controller.Respawn();
-            other.transform.position = Ghost_Controller.spawnpoint;
+            //other.transform.position = Ghost_Controller.spawnpoint;
         }
         
 

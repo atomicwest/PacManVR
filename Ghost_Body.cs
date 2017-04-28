@@ -9,6 +9,7 @@ public class Ghost_Body : MonoBehaviour {
 		
 	}
     
+    /*
     void OnTriggerEnter(Collider other)
     {
         if (other.name.Contains("Portal_Left"))
@@ -22,7 +23,7 @@ public class Ghost_Body : MonoBehaviour {
             Ghost_Controller.portDir = 2;
         }
     }
-    
+    */
     // Update is called once per frame
     void Update () {
 		

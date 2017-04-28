@@ -6,8 +6,11 @@ public class Ghost_Controller : MonoBehaviour {
 
     public static bool weak;
     public static float supertime;
-    public static bool revive;
-    public static int portDir;
+    //public static bool revive;      //this should not be static
+    //public static int portDir;      //this should not be static
+
+    private bool revive;
+    private int portDir;
 
     Dictionary<string, GameObject> childObjs = new Dictionary<string, GameObject>();
     Dictionary<string, GameObject>.KeyCollection keys;
@@ -35,7 +38,7 @@ public class Ghost_Controller : MonoBehaviour {
         keys = childObjs.Keys;
     }
 
-    /*
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.name.Contains("Portal_Left"))
@@ -52,8 +55,8 @@ public class Ghost_Controller : MonoBehaviour {
             transform.position = spawnpoint;
         }
     }
-    */
-
+    
+    /*
     void Portals()
     {
         switch (portDir)
@@ -70,6 +73,7 @@ public class Ghost_Controller : MonoBehaviour {
                 break;
         }
     }
+    */
 
     void Switcher()
     {
@@ -133,7 +137,7 @@ public class Ghost_Controller : MonoBehaviour {
 
         Switcher();
         //Respawn();
-        Portals();
+        //Portals();
 
     }
 }
