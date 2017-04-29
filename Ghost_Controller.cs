@@ -55,25 +55,7 @@ public class Ghost_Controller : MonoBehaviour {
             transform.position = spawnpoint;
         }
     }
-    
-    /*
-    void Portals()
-    {
-        switch (portDir)
-        {
-            case 1:
-                gameObject.transform.position = GameObject.Find("Portal_Right").transform.position;
-                portDir = 0;
-                break;
-            case 2:
-                gameObject.transform.position = GameObject.Find("Portal_Left").transform.position;
-                portDir = 0;
-                break;
-            default:
-                break;
-        }
-    }
-    */
+
 
     void Switcher()
     {

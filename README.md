@@ -17,9 +17,13 @@ Basic features are completed:
 * collecting super pellets to weaken and consume ghosts
 * teleporting across the screen
 * end game if out of lives or collected all pellets
+* basic character animations 
+* UI timer and score
 
 Currently working on:
-* character animations
-* in-game overhead map
+* in-game overhead map (GoogleVR plugin does not handle Render Textures applied to Unity UI image objects)
+
+![DisplayMapBad](/img/overheadmap_notworking.PNG)
+
 * pathfinding for ghosts
 * levels
