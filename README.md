@@ -12,7 +12,7 @@
 
 Development in Unity/C#
 
-####First Beta available
+#### [First Beta available](/Builds)
 This build has some issues with the GoogleVR SDK; UI elements that were set as children to the Gvr object do not render for some reason.
 I am working on forcing UI elements to appear through non-UI objects, such as the mini-map (which is an active feature in the first Beta).
 The next Beta will (hopefully) have sound and a proper intro/restart option.
