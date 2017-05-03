@@ -10,7 +10,12 @@
 
 ![PacManWon](/img/FinalScore.PNG)
 
-Development currently underway in Unity/C#.
+Development in Unity/C#
+
+####First Beta available
+This build has some issues with the GoogleVR SDK; UI elements that were set as children to the Gvr object do not render for some reason.
+I am working on forcing UI elements to appear through non-UI objects, such as the mini-map (which is an active feature in the first Beta).
+The next Beta will (hopefully) have sound and a proper intro/restart option.
 
 Basic features are completed:
 * collecting pellets to score
@@ -31,8 +36,6 @@ Basic features are completed:
 ![DisplayMapBad](/img/overheadmap_notworking.PNG)
 
 
-
 Next improvements on:
-
 * levels
 * ghost chasing, fixing crowding
