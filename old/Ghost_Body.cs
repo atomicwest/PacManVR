@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ghost_Body : MonoBehaviour {
 
+    //heading: https://docs.unity3d.com/Manual/DirectionDistanceFromOneObjectToAnother.html
+
 	// Use this for initialization
 	void Start () {
 		
