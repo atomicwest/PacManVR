@@ -13,7 +13,8 @@ public class Controller_Main : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        spawnPoint = transform.position;
+        //start the animation
+        spawnPoint = GameObject.Find("Pacman_Respawn_Point").transform.position;
         moving = true;
         dead = false;
     }
@@ -30,12 +31,18 @@ public class Controller_Main : MonoBehaviour {
             transform.position = GameObject.Find("Portal_Right").transform.position;
         }
     }
+		
 
-    //bug causes pacman to fly all over board when eating a ghost
-    //prevent large changes in position
-    void PreventFlight()
+    IEnumerator Revive()
     {
-        //????
+		transform.position = spawnPoint;
+
+		dead = false;
+
+		yield return new WaitForSecondsRealtime (1);
+
+		Time.timeScale = 1;
+		yield break;
     }
 
 
@@ -45,9 +52,8 @@ public class Controller_Main : MonoBehaviour {
         //call when hitting a ghost without super pellet
         if (dead)
         {
-            Debug.Log("I died");
-            transform.position = spawnPoint;
-            dead = false;
+            //Debug.Log("I died");
+			StartCoroutine(Revive());
         }
 
         if (moving)
@@ -59,6 +65,13 @@ public class Controller_Main : MonoBehaviour {
         {
             transform.position = spawnPoint;
         }
+
+		if (Ghost_Controller.weak) 
+		{
+			speed = 7.9f;	
+		} else if (!Ghost_Controller.weak) {
+			speed = 7.5f;
+		}
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;

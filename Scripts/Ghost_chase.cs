@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//attach to each Ghost controller to govern movement
-
 public class Ghost_chase : MonoBehaviour {
 
     Vector3 heading;
@@ -67,7 +65,7 @@ public class Ghost_chase : MonoBehaviour {
             }
         }
 
-        Debug.Log(GameObject.Find("Super"));
+        //Debug.Log(GameObject.Find("Super"));
 
         //red gets a boost if all super pellets are eaten
         if (GameObject.Find("Super")==null)

@@ -1,6 +1,6 @@
 # PacManVR
 
-### VR Game for Android and iOS
+### VR Game for Android/Google Cardboard
 
 ![PacGhost](/img/pacman_orange_cyan.PNG)
 
@@ -13,7 +13,12 @@
 Development in Unity/C#
 
 #### [Betas available](/Builds)
-The second beta has now been released and has sound enabled.
+The second beta has now been released and has sound enabled. The 
+release is for Android only, but an iOS version can be built with 
+the scripts on this repo if you have Unity and the necessary SDKs. 
+A more detailed walkthrough of the project, how the Unity scenes
+were built, and how the scripts are linked will be written out in the
+near future.
 
 Basic features are completed:
 * collecting pellets to score

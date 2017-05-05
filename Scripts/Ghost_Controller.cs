@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//attach to each ghost controller to govern super pellets and respawning
-
 public class Ghost_Controller : MonoBehaviour {
 
     public static bool weak;
@@ -57,7 +55,7 @@ public class Ghost_Controller : MonoBehaviour {
             transform.position = spawnpoint;
         }
     }
-
+    
 
     void Switcher()
     {
