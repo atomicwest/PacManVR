@@ -9,9 +9,10 @@ public class Pacman_Controller : MonoBehaviour {
 	public AudioClip eatghost;
 	public AudioClip pacdie;
 
+
 	private AudioSource source;
 	private float volNorm = 1.0f;
-
+	private GameObject pellets;
 	//private Animation anim;
 
 	// Use this for initialization
@@ -19,24 +20,35 @@ public class Pacman_Controller : MonoBehaviour {
         score = 0;
 		source = GetComponent<AudioSource> ();
 		//anim["pacman_rig_1"].speed = 3;
+		pellets = GameObject.Find("Pellet_Group");
 	}
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name.Contains("Pellet"))
+        /*		//delegate this to background_sound
+		if (other.name.Contains ("Pellet") | other.name.Contains ("Super")) {
+			if (pellets.transform.childCount < 1) {
+				Debug.Log ("pacman has  won");
+				Time.timeScale = 0;
+				Continue_Controller.wingame = true;
+				//background_sound_controller.stopsound = true;
+			}
+		}
+		*/
+		if (other.name.Contains("Pellet"))
         {
             Score_Manager.score += 10;
             Destroy(other.gameObject);
 			source.PlayOneShot (waka,volNorm);
         }
+
         else if (other.name.Contains("Special"))
         {
             Score_Manager.score += 500;
             Destroy(other.gameObject);
 			source.PlayOneShot (waka,volNorm);
         }
-
-        
+			
         else if (other.name.Contains("Super"))
         {
             //Debug.Log("Ghosts should be weak now");
@@ -57,8 +69,10 @@ public class Pacman_Controller : MonoBehaviour {
 
         else if (other.name.Contains("ghost") && Score_Manager.lives == 0)
         {
-			Score_Manager.endgame = true;
-            Time.timeScale = 0;
+			Debug.Log ("Pacman lost");
+			Continue_Controller.losegame = true;
+			background_sound_controller.stopsound = true;
+            //Time.timeScale = 0;
 			source.PlayOneShot (pacdie,volNorm);
         }
 

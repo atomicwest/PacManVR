@@ -39,7 +39,7 @@ public class Controller_Main : MonoBehaviour {
 
 		dead = false;
 
-		yield return new WaitForSecondsRealtime (1);
+		yield return new WaitForSecondsRealtime (2);
 
 		Time.timeScale = 1;
 		yield break;

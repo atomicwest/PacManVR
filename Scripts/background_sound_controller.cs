@@ -12,6 +12,8 @@ public class background_sound_controller : MonoBehaviour {
 	private GameObject pellets;
 	private float savepitch;
 
+	public static bool stopsound = false;
+
 	// Use this for initialization
 	void Start () {
 		source = GetComponent<AudioSource> ();
@@ -22,8 +24,6 @@ public class background_sound_controller : MonoBehaviour {
 
 
 	IEnumerator SwitchAudio(){
-
-
 
 		while (Time.timeScale != 0) {
 
@@ -65,12 +65,22 @@ public class background_sound_controller : MonoBehaviour {
 		if (pellets.transform.childCount < 100) {
 			GameObject.Find("MiniMap").SetActive(true);
 		}
-		*/
 
-		if (Score_Manager.endgame || gameObject.transform.childCount==0) 
+
+		
+		*/
+		if (stopsound || pellets.transform.childCount<=0) 
 		{
 			source.Stop ();
-		}
+			Time.timeScale = 0;
 
+			if (pellets.transform.childCount <= 0) {
+				Continue_Controller.wingame = true;
+			}
+
+			//activate Continue_Controller here
+			GameObject.Find("Continue_Text").GetComponent<Continue_Controller>().enabled = true;
+
+		}
 	}
 }

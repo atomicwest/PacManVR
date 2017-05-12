@@ -7,7 +7,9 @@ public class Ghost_chase : MonoBehaviour {
     Vector3 heading;
     GameObject pacman;
 
-    private float speed = 5;
+	public static float speed = 5;
+	private float speedboost = 2;
+	private bool boosted;
 
     CharacterController controller;
     Vector3 targetRotation;
@@ -18,7 +20,7 @@ public class Ghost_chase : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+		boosted = false;
         controller = GetComponent<CharacterController>();
 
         if (gameObject.name.Contains("red")){
@@ -44,6 +46,17 @@ public class Ghost_chase : MonoBehaviour {
         }
     }
 
+	void OnDestroy() {
+		//reset red's speed
+		//ghosts should only be destroyed when the level 
+		//is reloaded
+		if (gameObject.name.Contains ("red")) {
+			if (boosted) {
+				speed -= speedboost;
+				boosted = false;
+			}
+		}
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -68,9 +81,10 @@ public class Ghost_chase : MonoBehaviour {
         //Debug.Log(GameObject.Find("Super"));
 
         //red gets a boost if all super pellets are eaten
-        if (GameObject.Find("Super")==null)
+		if (GameObject.Find("Super")==null && gameObject.name.Contains("red"))
         {
-            speed = 8;
+			boosted = true;
+			speed += speedboost;
         }
 
         targetDir = pacman.transform.position - transform.position;

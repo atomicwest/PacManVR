@@ -13,7 +13,7 @@
 Development in Unity/C#
 
 #### [Betas available](/Builds)
-The second beta has now been released and has sound enabled. The 
+Betas have now been released and has sound enabled. The 
 release is for Android only, but an iOS version can be built with 
 the scripts on this repo if you have Unity and the necessary SDKs. 
 A more detailed walkthrough of the project, how the Unity scenes
@@ -41,8 +41,11 @@ Basic features are completed:
 * score and timer are now visible by making the UI text children of the Pac-Man mesh
 * sound effects and cues have been added
 * introduction sequence with Pac-Man start music clip added
-
-Next improvements on:
+* fonts updated with [8bit-wonder](http://www.dafont.com/8bit-wonder.font)
 * levels/ability to properly exit game
+![ContinueScreen](/img/FontExample_continue_Screen.PNG)
+![PinkExample](/img/Pink_example.PNG)
+
+Eventually I will go back to make improvements on:
 * ghost chasing, fixing crowding
-* cleaning up code
+* cleaning up code, better encapsulation
