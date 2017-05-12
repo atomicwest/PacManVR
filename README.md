@@ -48,4 +48,6 @@ Basic features are completed:
 
 Eventually I will go back to make improvements on:
 * ghost chasing, fixing crowding
-* cleaning up code, better encapsulation
+* cleaning up code
+* there is also a bug that can happen when you win and continue to another round; if the ghosts happen to congregate at your spawnpoint, you will die and respawn over and over again and might even trigger the win sequence for some reason.
+

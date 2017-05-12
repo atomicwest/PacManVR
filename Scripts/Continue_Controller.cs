@@ -48,8 +48,9 @@ public class Continue_Controller : MonoBehaviour {
 		int cont_count = 9;
 		//text.text = "\nShake head to Exit \n or wait to continue: \n ";
 		while(cont_count > 0) {
-
-			if (Mathf.Abs(Input.acceleration.x) > 2 || Mathf.Abs(Input.acceleration.z) > 2) {
+			Debug.Log (Input.acceleration.x);
+			Debug.Log (Input.acceleration.z);
+			if (Mathf.Abs(Input.acceleration.x) > 0.5 || Mathf.Abs(Input.acceleration.z) > 0.5) {
 				Application.Quit ();
 			}
 			if (losegame)

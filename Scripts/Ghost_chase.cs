@@ -7,8 +7,9 @@ public class Ghost_chase : MonoBehaviour {
     Vector3 heading;
     GameObject pacman;
 
-	public static float speed = 5;
-	private float speedboost = 2;
+	public static float speed = 4;
+	private float currentspeed;
+	private float speedboost = 1;
 	private bool boosted;
 
     CharacterController controller;
@@ -20,6 +21,7 @@ public class Ghost_chase : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+		currentspeed = speed;
 		boosted = false;
         controller = GetComponent<CharacterController>();
 
@@ -88,7 +90,8 @@ public class Ghost_chase : MonoBehaviour {
         }
 
         targetDir = pacman.transform.position - transform.position;
-        step = speed * Time.deltaTime;
+        step = currentspeed * Time.deltaTime;
+		//step = speed;
 
         //ghosts will flee if a super pellet is activated
         if (Ghost_Controller.weak)
@@ -104,6 +107,6 @@ public class Ghost_chase : MonoBehaviour {
         transform.rotation = Quaternion.LookRotation(newDir);
 
         var forward = transform.TransformDirection(Vector3.forward);
-        controller.SimpleMove(forward * speed);
+		controller.SimpleMove(forward * currentspeed);
     }
 }
