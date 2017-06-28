@@ -2,13 +2,7 @@
 
 ### VR Game for Android/Google Cardboard
 
-![PacGhost](/img/pacman_orange_cyan.PNG)
-
-![PinkRed](/img/pink_red.PNG)
-
-![PacManDead](/img/pacman_dead.PNG)
-
-![PacManWon](/img/FinalScore.PNG)
+![PinkExample](/img/Pink_example.PNG)
 
 Development in Unity/C#
 
@@ -44,7 +38,7 @@ Basic features are completed:
 * fonts updated with [8bit-wonder](http://www.dafont.com/8bit-wonder.font)
 * levels/ability to properly exit game
 ![ContinueScreen](/img/FontExample_continue_Screen.PNG)
-![PinkExample](/img/Pink_example.PNG)
+
 * repeated death/crowding bug when continuing to a new level has been fixed
 * added title card and play information at the beginning of the game
 ![TitleCard](/img/intro_title_vr.PNG) 
