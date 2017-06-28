@@ -15,7 +15,7 @@ Development in Unity/C#
 #### [Betas available](/Builds)
 Betas have now been released and has sound enabled. The 
 release is for Android only, but an iOS version can be built with 
-the scripts on this repo if you have Unity and the necessary SDKs. 
+the scripts and 3D assets in this repo if you have Unity and the necessary SDKs. 
 A more detailed walkthrough of the project, how the Unity scenes
 were built, and how the scripts are linked will be written out in the
 near future.
@@ -45,9 +45,14 @@ Basic features are completed:
 * levels/ability to properly exit game
 ![ContinueScreen](/img/FontExample_continue_Screen.PNG)
 ![PinkExample](/img/Pink_example.PNG)
+* repeated death/crowding bug when continuing to a new level has been fixed
+* added title card and play information at the beginning of the game
+![TitleCard](/img/intro_title_vr.PNG) 
+![Direction](/img/intro_direction_vr.PNG)
+![Characters](/img/intro_direction_char_vr.PNG)
 
 Eventually I will go back to make improvements on:
 * ghost chasing, fixing crowding
 * cleaning up code
-* there is also a bug that can happen when you win and continue to another round; if the ghosts happen to congregate at your spawnpoint, you will die and respawn over and over again and might even trigger the win sequence for some reason.
+
 

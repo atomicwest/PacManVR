@@ -14,7 +14,7 @@ public class Ready_Omni_Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-        if (Time.realtimeSinceStartup > 20)
+        if (Time.timeSinceLevelLoad > 20)
         {
             gameObject.SetActive(false);
         }

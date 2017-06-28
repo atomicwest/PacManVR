@@ -23,6 +23,8 @@ public class Continue_Controller : MonoBehaviour {
 	public static bool losegame = false;     //set by Pacman_Controller.cs if the player lost and has no lives
 	public static bool wingame = false;		//set by Pacman_Controller.cs if the player won, needed to increase ghost speed
 
+	public static Vector3 ghostspawn;
+
 	// Use this for initialization
 	void Start () {
 		source = GetComponent<AudioSource> ();
@@ -74,14 +76,23 @@ public class Continue_Controller : MonoBehaviour {
 		if (losegame) {
 			Score_Manager.score = 0;
 			Score_Manager.lives = 3;
-		} else if (wingame) {
+		} /*else if (wingame) {
 			Ghost_chase.speed += 0.5f;
-		}
-		SceneManager.LoadScene (1);
+		}*/
+		ResetGhosts ();
+		SceneManager.LoadScene (3);
 		//SceneManager.LoadSceneAsync (0);
 		//yield break;
 	}
 
+
+	void ResetGhosts(){
+		ghostspawn = GameObject.Find ("Ghost_Respawn_Point").transform.position;
+		GameObject.Find ("ghost_container_pink").transform.position = ghostspawn;
+		GameObject.Find ("ghost_container_cyan").transform.position = ghostspawn;
+		GameObject.Find ("ghost_container_red").transform.position = ghostspawn;
+		GameObject.Find ("ghost_container_orange").transform.position = ghostspawn;
+	}
 
 	// Update is called once per frame
 	void Update () {
